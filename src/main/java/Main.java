@@ -31,6 +31,7 @@ public class Main {
         //Affecter la variable ptsBouclier
         ptsBouclier = PTS_BOUCLIER;
         scanner.close();
+
     }
 
 
