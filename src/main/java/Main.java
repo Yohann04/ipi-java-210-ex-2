@@ -16,14 +16,16 @@ public class Main {
     public static boolean bouclierActif = true;
 
     public static void main(String[] args) {
-        initEnnemis();
+        /*initEnnemis();
         initPersonnage();
         afficherPersonnage();
         bouclierActif = true;
         short ennemi = 5;
         ennemi = attaqueJoueur(ennemi);
         System.out.println("il reste " + ennemi + " points de vie à l'ennemi");
-        attaqueEnnemi();
+        attaqueEnnemi();*/
+
+        //TODO exercice 11
     }
 
     public static void initPersonnage() {
