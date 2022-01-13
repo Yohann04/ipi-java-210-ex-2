@@ -82,7 +82,7 @@ public class Main {
         System.out.print("L'" + Util.color("ennemi", Color.YELLOW) + " attaque " + Util.color(nomPersonnage, Color.GREEN) + " ! ");
         System.out.print("Il lui fait perde " + Util.color(dommages, Color.PURPLE) + " points de dommages !");
         //Le bouclier qui absorbe les dégâts en premier s'il est actif et qu'il n'est pas vide
-        if(bouclierActif == true && ptsBouclier > 0){
+        if(ptsBouclier > 0){
             if(ptsBouclier >= dommages) {
                 ptsBouclier -= dommages;
                 System.out.print("Le bouclier perd " + Util.color(dommages, Color.BLUE) + " points.");
