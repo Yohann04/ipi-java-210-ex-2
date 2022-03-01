@@ -16,14 +16,16 @@ public class Main {
     public static boolean bouclierActif = true;
 
     public static void main(String[] args) {
-        initEnnemis();
         initPersonnage();
+        initEnnemis();
+        System.out.println("====================================================");
+        System.out.println("Combat avec un ennemi possédant " + Util.color(MAX_VIE_ENNEMI, Color.PURPLE) + " points de vie !");
         afficherPersonnage();
         bouclierActif = true;
-        short ennemi = 5;
+        short ennemi = nombreAuHasard(MAX_VIE_ENNEMI);
         ennemi = attaqueJoueur(ennemi);
-        System.out.println("il reste " + ennemi + " points de vie à l'ennemi");
         attaqueEnnemi();
+        afficherPersonnage();
     }
 
     public static void initPersonnage() {
@@ -38,7 +40,7 @@ public class Main {
         ptsDeVie = MAX_PTS_VIE;
         //Affecter la variable ptsBouclier
         ptsBouclier = bouclierActif ? PTS_BOUCLIER : 0;
-        scanner.close();
+
     }
 
     public static boolean hasard(double pourcentage) {
@@ -72,7 +74,7 @@ public class Main {
             System.out.print(" " + Util.color(ptsBouclier, Color.BLUE));
         }
         System.out.print(")");
-        System.out.println();
+        System.out.println(" vs ennemi " + "(" + Util.color(MAX_VIE_ENNEMI, Color.PURPLE) + ")");
     }
 
     public static void attaqueEnnemi(){
@@ -85,7 +87,7 @@ public class Main {
         if(ptsBouclier > 0){
             if(ptsBouclier >= dommages) {
                 ptsBouclier -= dommages;
-                System.out.print("Le bouclier perd " + Util.color(dommages, Color.BLUE) + " points.");
+                System.out.println("Le bouclier perd " + Util.color(dommages, Color.BLUE) + " points.");
                 dommages = 0;
             } else {
                 dommages -= ptsBouclier;
@@ -102,7 +104,7 @@ public class Main {
     }
 
     public static short[] initEnnemis() {
-        System.out.println(" Combien souhaitez-vous combattre d'ennemis ?");
+        System.out.println("Combien souhaitez-vous combattre d'ennemis ?");
         //Récupère le nombre d'ennemis saisis par l'utilisateur
         Scanner scanner = new Scanner(System.in);
         int nbEnnemis = scanner.nextInt();
