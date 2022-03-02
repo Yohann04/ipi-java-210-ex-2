@@ -16,16 +16,16 @@ public class Main {
     public static boolean bouclierActif = true;
 
     public static void main(String[] args) {
-        initPersonnage();
-        initEnnemis();
-        System.out.println("====================================================");
-        System.out.println("Combat avec un ennemi possédant " + Util.color(MAX_VIE_ENNEMI, Color.PURPLE) + " points de vie !");
-        afficherPersonnage();
-        bouclierActif = true;
-        short ennemi = nombreAuHasard(MAX_VIE_ENNEMI);
-        ennemi = attaqueJoueur(ennemi);
-        attaqueEnnemi();
-        afficherPersonnage();
+            initPersonnage();
+            initEnnemis();
+            System.out.println("====================================================");
+            System.out.println("Combat avec un ennemi possédant " + Util.color(MAX_VIE_ENNEMI, Color.PURPLE) + " points de vie !");
+            afficherPersonnage();
+            bouclierActif = true;
+            short ennemi = nombreAuHasard(MAX_VIE_ENNEMI);
+            ennemi = attaqueJoueur(ennemi);
+            attaqueEnnemi();
+            afficherPersonnage();
     }
 
     public static void initPersonnage() {
