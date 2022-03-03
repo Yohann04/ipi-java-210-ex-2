@@ -17,15 +17,29 @@ public class Main {
 
     public static void main(String[] args) {
             initPersonnage();
-            initEnnemis();
+        short[] ennemis = initEnnemis();
+        for (short vieEnnemis : ennemis) {
             System.out.println("====================================================");
-            System.out.println("Combat avec un ennemi possédant " + Util.color(MAX_VIE_ENNEMI, Color.PURPLE) + " points de vie !");
+            System.out.println("Combat avec un ennemi possédant " + Util.color(vieEnnemis, Color.PURPLE) + " points de vie !");
             afficherPersonnage();
             bouclierActif = true;
             short ennemi = nombreAuHasard(MAX_VIE_ENNEMI);
             ennemi = attaqueJoueur(ennemi);
             attaqueEnnemi();
             afficherPersonnage();
+            if (ptsDeVie < 1) {
+                System.out.println(nomPersonnage + " est mort mais a tué " + nbEnnemisTues + " ennemis");
+                break;
+            }
+            System.out.println("Saisissez S pour passer au combat suivant ou n'importe quoi d'autre pour fuir...");
+            if(new Scanner(System.in).nextLine().equals("s")){
+
+            } else {
+                System.out.println("Espèce de lâche !");
+                System.out.println("Vous avez tué " + nbEnnemisTues + " ennemis mais êtes partis lâchement avant la fin...");
+                return;
+            }
+        }
     }
 
     public static void initPersonnage() {
@@ -69,13 +83,13 @@ public class Main {
     }
 
     public static void afficherPersonnage() {
-       System.out.print(Util.color(nomPersonnage, Color.GREEN) + " (" + Util.color(ptsDeVie, Color.RED));
-        if(bouclierActif){
+        System.out.print(Util.color(nomPersonnage, Color.GREEN) + " (" + Util.color(ptsDeVie, Color.RED));
+        if (bouclierActif) {
             System.out.print(" " + Util.color(ptsBouclier, Color.BLUE));
         }
         System.out.print(")");
-        System.out.println(" vs ennemi " + "(" + Util.color(MAX_VIE_ENNEMI, Color.PURPLE) + ")");
-    }
+        System.out.println(" vs ennemi " + "(" + Util.color(MAX_VIE_ENNEMI/* je ne sais pas quoi mettre ici a la place de MAX_VIE_ENNEMI car vieEnnemi ne fonctionne pas*/, Color.PURPLE) + ")");
+        }
 
     public static void attaqueEnnemi(){
         //Déterminer la force de l'attaque
